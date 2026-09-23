@@ -212,6 +212,11 @@ a:not([class*="text-"]) {
   @apply flex flex-col gap-3 sm:gap-4 p-5 sm:p-6 xl:p-7 bg-[var(--gs-card-bg)] border border-[var(--gs-card-border)] rounded-2xl transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
 }
 
+/* Botón hero home en dark mode: acento pasa a gris claro, texto debe ser oscuro */
+[data-dark][data-theme="home"] #hero-btn {
+  color: #0e0e0e;
+}
+
 /* =============================================
    ANIMATIONS
    ============================================= */
