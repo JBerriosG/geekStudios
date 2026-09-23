@@ -1,0 +1,140 @@
+﻿---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+---
+
+<Layout title="3D" theme="3d">
+  <Nav activePage="3d" />
+
+  <!-- ===== HERO ===== -->
+  <section class="w-full bg-[var(--gs-bg-alt)]">
+    <div class="gs-container">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 py-12 sm:py-16 lg:py-0 lg:min-h-[610px]">
+
+        <!-- Copy -->
+        <div class="w-full lg:max-w-[640px] xl:max-w-[700px]">
+          <p class="gs-section-eyebrow !pt-0">GEEK STUDIO · 3D</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[58px] xl:text-[68px] font-bold leading-[1.1] text-[var(--gs-text-primary)] mb-6 sm:mb-8">
+            Objetos digitales que<br />cobran vida.
+          </h1>
+          <p class="text-base sm:text-lg xl:text-xl text-[var(--gs-text-muted)] leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-[540px]">
+            Modelado, visualización y experiencias 3D que elevan tu marca a otra dimensión.
+          </p>
+          <a href="#contacto" class="gs-btn bg-[var(--gs-accent)] text-[var(--gs-badge-text)]">
+            VER PROYECTOS 3D
+          </a>
+        </div>
+
+        <!-- Cube visual -->
+        <div
+          class="w-full sm:max-w-[420px] sm:mx-auto lg:mx-0 lg:w-[480px] lg:min-w-[480px] aspect-[480/470] bg-[var(--gs-hero-visual)] rounded-3xl overflow-hidden flex items-center justify-center lg:my-[70px]"
+          style="perspective: 600px;"
+        >
+          <div class="cube relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] lg:w-[200px] lg:h-[200px]" style="transform-style: preserve-3d;">
+            {[
+              "translateZ(70px)",
+              "rotateY(180deg) translateZ(70px)",
+              "rotateY(90deg) translateZ(70px)",
+              "rotateY(-90deg) translateZ(70px)",
+              "rotateX(90deg) translateZ(70px)",
+              "rotateX(-90deg) translateZ(70px)"
+            ].map(t => (
+              <div
+                class="absolute inset-0 border border-white/40 rounded-lg bg-white/5"
+                style={`transform: ${t};`}
+              />
+            ))}
+          </div>
+          <span class="absolute bottom-6 left-6 sm:bottom-10 sm:left-8 text-[clamp(2.5rem,10vw,5rem)] font-bold text-white/15 tracking-[-3px] pointer-events-none select-none">3D</span>
+          <span class="absolute bottom-8 right-6 sm:bottom-12 sm:right-8 text-sm sm:text-xl font-bold text-white/25 tracking-[3px] pointer-events-none select-none">STUDIO</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section id="servicios" class="w-full bg-[var(--gs-bg)]">
+    <div class="gs-container pb-12 sm:pb-14 xl:pb-[72px]">
+      <p class="gs-section-eyebrow">SERVICIOS 3D</p>
+      <h2 class="gs-section-heading">Diseño tridimensional<br />para el mundo digital.</h2>
+      <p class="gs-section-subtext">
+        Desde visualizaciones de producto hasta entornos inmersivos, creamos experiencias 3D que sorprenden.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 xl:gap-6">
+        <div class="gs-card">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">01</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">MODELADO 3D</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Modelos tridimensionales precisos para productos, arquitectura y experiencias digitales.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+        <div class="gs-card">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">02</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">VISUALIZACIÓN</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Renders fotorrealistas y animaciones que dan vida a tus ideas antes de producirlas.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+        <div class="gs-card sm:col-span-2 lg:col-span-1">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">03</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">WEB 3D / AR</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Experiencias interactivas en el navegador con Three.js y realidad aumentada.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="w-full bg-[var(--gs-contact-bg)]">
+    <div class="gs-container pb-12 sm:pb-16 xl:pb-20">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 lg:gap-20">
+        <div class="w-full lg:max-w-[720px]">
+          <p class="text-[13px] sm:text-[14px] font-semibold tracking-[1.5px] text-white/55 pt-10 sm:pt-12 xl:pt-14 mb-5 sm:mb-7">
+            CONTACTO
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] xl:text-[52px] font-bold leading-[1.15] text-white mb-5 sm:mb-6">
+            ¿Listo para dar vida<br />a tu proyecto en 3D?
+          </h2>
+          <p class="text-base sm:text-lg text-white/60 leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-[580px]">
+            Cuéntanos tu idea y creamos la experiencia visual que imaginas.
+          </p>
+          <a href="mailto:hola@geekstudio.cl" class="gs-btn bg-[var(--gs-contact-btn)] text-[var(--gs-contact-btn-text)]">
+            HABLEMOS
+          </a>
+        </div>
+        <div class="flex flex-row flex-wrap lg:flex-col gap-8 lg:gap-7 lg:pt-14 lg:min-w-[200px]">
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-white/40">EMAIL</span>
+            <a href="mailto:hola@geekstudio.cl" class="text-base sm:text-xl font-medium text-white hover:opacity-75 transition-opacity">
+              hola@geekstudio.cl
+            </a>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-white/40">INSTAGRAM</span>
+            <a href="https://instagram.com/geekstudio" target="_blank" rel="noopener" class="text-base sm:text-xl font-medium text-white hover:opacity-75 transition-opacity">
+              @geekstudio
+            </a>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-white/40">SERVICIO</span>
+            <span class="text-base sm:text-xl font-medium text-white">Diseño 3D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="w-full bg-[var(--gs-bg-alt)] border-t border-[var(--gs-accent)]/12">
+    <div class="gs-container h-16 sm:h-[100px] flex items-center justify-between">
+      <span class="text-sm sm:text-[16px] font-bold text-[var(--gs-footer-text)] tracking-wide">GEEK STUDIO · 3D</span>
+      <span class="text-xs sm:text-[13px] text-[var(--gs-footer-copy)]">© 2026 Geek Studio</span>
+    </div>
+  </footer>
+</Layout>

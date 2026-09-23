@@ -1,0 +1,141 @@
+﻿---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+---
+
+<Layout title="Cybersecurity" theme="cybersecurity">
+  <Nav activePage="cybersecurity" />
+
+  <!-- ===== HERO ===== -->
+  <section class="w-full bg-[var(--gs-bg)]">
+    <div class="gs-container">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 py-12 sm:py-16 lg:py-0 lg:min-h-[610px]">
+
+        <!-- Copy -->
+        <div class="w-full lg:max-w-[640px] xl:max-w-[700px]">
+          <p class="gs-section-eyebrow !pt-0">GEEK STUDIO · CYBERSECURITY</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[58px] xl:text-[68px] font-bold leading-[1.1] text-[var(--gs-text-primary)] mb-6 sm:mb-8">
+            Tu seguridad digital,<br />nuestra prioridad.
+          </h1>
+          <p class="text-base sm:text-lg xl:text-xl text-[var(--gs-text-muted)] leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-[540px]">
+            Protegemos tu negocio con soluciones de ciberseguridad diseñadas para el mundo actual.
+          </p>
+          <a href="#contacto" class="gs-btn bg-[var(--gs-accent)] text-[var(--gs-badge-text)]">
+            PROTEGER MI NEGOCIO
+          </a>
+        </div>
+
+        <!-- Cyber visual -->
+        <div class="w-full sm:max-w-[420px] sm:mx-auto lg:mx-0 lg:w-[480px] lg:min-w-[480px] aspect-[480/470] bg-[var(--gs-hero-visual)] rounded-3xl overflow-hidden flex flex-col items-center justify-center gap-4 sm:gap-5 lg:my-[70px] relative">
+          <svg
+            class="w-16 h-20 sm:w-24 sm:h-28 text-[var(--gs-bg)]"
+            style="filter: drop-shadow(0 0 16px rgba(16,185,129,0.5));"
+            viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M60 4L8 24V68C8 96 32 120 60 132C88 120 112 96 112 68V24L60 4Z"
+              stroke="currentColor" stroke-width="2" fill="rgba(255,255,255,0.12)" />
+            <path d="M40 70L54 84L82 56" stroke="currentColor" stroke-width="4"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="bg-black/50 border border-white/20 rounded-xl px-4 sm:px-5 py-3 sm:py-4 font-mono text-[11px] sm:text-xs w-[75%] max-w-[280px]">
+            <div class="leading-[1.9] text-[var(--gs-text-primary)]">
+              <div><span class="text-[var(--gs-accent)]">$</span> scan --target network</div>
+              <div class="text-[var(--gs-text-muted)]">Scanning...</div>
+              <div><span class="text-[var(--gs-accent)]">&#10003;</span> No threats found</div>
+              <div class="blink"><span class="text-[var(--gs-accent)]">$</span> _</div>
+            </div>
+          </div>
+          <span class="absolute bottom-4 right-5 sm:bottom-5 sm:right-6 text-[11px] sm:text-[13px] font-bold tracking-[4px] text-[var(--gs-bg)]/20 pointer-events-none select-none">
+            SECURE
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section id="servicios" class="w-full bg-[var(--gs-bg-alt)]">
+    <div class="gs-container pb-12 sm:pb-14 xl:pb-[72px]">
+      <p class="gs-section-eyebrow">SERVICIOS DE SEGURIDAD</p>
+      <h2 class="gs-section-heading">Defensa digital<br />en múltiples capas.</h2>
+      <p class="gs-section-subtext">
+        Auditamos, protegemos y fortalecemos la seguridad digital de tu empresa de forma integral.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 xl:gap-6">
+        <div class="gs-card">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">01</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">AUDITORÍA</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Evaluación completa de vulnerabilidades en sistemas, redes y aplicaciones web.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+        <div class="gs-card">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">02</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">PENTESTING</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Pruebas de penetración controladas para identificar y mitigar vectores de ataque.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+        <div class="gs-card sm:col-span-2 lg:col-span-1">
+          <span class="text-[13px] font-bold text-[var(--gs-card-num)]">03</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">CONSULTORÍA</span>
+          <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
+            Estrategia y políticas de seguridad adaptadas al tamaño y riesgo de tu organización.
+          </p>
+          <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="w-full bg-[var(--gs-contact-bg)]">
+    <div class="gs-container pb-12 sm:pb-16 xl:pb-20">
+      <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 lg:gap-20">
+        <div class="w-full lg:max-w-[720px]">
+          <p class="text-[13px] sm:text-[14px] font-semibold tracking-[1.5px] text-[var(--gs-accent)]/70 pt-10 sm:pt-12 xl:pt-14 mb-5 sm:mb-7">
+            CONTACTO
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] xl:text-[52px] font-bold leading-[1.15] text-[var(--gs-text-primary)] mb-5 sm:mb-6">
+            ¿Tu empresa está<br />realmente protegida?
+          </h2>
+          <p class="text-base sm:text-lg text-[var(--gs-text-muted)] leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-[580px]">
+            Agenda una consulta gratuita y evaluamos juntos el nivel de seguridad de tu negocio.
+          </p>
+          <a href="mailto:hola@geekstudio.cl" class="gs-btn bg-[var(--gs-contact-btn)] text-[var(--gs-contact-btn-text)]">
+            AGENDAR CONSULTA
+          </a>
+        </div>
+        <div class="flex flex-row flex-wrap lg:flex-col gap-8 lg:gap-7 lg:pt-14 lg:min-w-[200px]">
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-[var(--gs-text-muted)]/60">EMAIL</span>
+            <a href="mailto:hola@geekstudio.cl" class="text-base sm:text-xl font-medium text-[var(--gs-text-primary)] hover:opacity-75 transition-opacity">
+              hola@geekstudio.cl
+            </a>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-[var(--gs-text-muted)]/60">INSTAGRAM</span>
+            <a href="https://instagram.com/geekstudio" target="_blank" rel="noopener" class="text-base sm:text-xl font-medium text-[var(--gs-text-primary)] hover:opacity-75 transition-opacity">
+              @geekstudio
+            </a>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-bold tracking-[1.5px] text-[var(--gs-text-muted)]/60">SERVICIO</span>
+            <span class="text-base sm:text-xl font-medium text-[var(--gs-text-primary)]">Ciberseguridad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="w-full bg-[var(--gs-bg)] border-t border-[var(--gs-accent)]/12">
+    <div class="gs-container h-16 sm:h-[100px] flex items-center justify-between">
+      <span class="text-sm sm:text-[16px] font-bold text-[var(--gs-footer-text)] tracking-wide">GEEK STUDIO · CYBER</span>
+      <span class="text-xs sm:text-[13px] text-[var(--gs-footer-copy)]">© 2026 Geek Studio</span>
+    </div>
+  </footer>
+</Layout>

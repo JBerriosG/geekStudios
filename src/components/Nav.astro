@@ -1,0 +1,160 @@
+﻿---
+export interface Props {
+  activePage: "home" | "web" | "3d" | "cybersecurity";
+}
+const { activePage } = Astro.props;
+
+const navLinks = [
+  { label: "HOME",          href: "/",             key: "home" },
+  { label: "WEB",           href: "/web",          key: "web" },
+  { label: "3D",            href: "/3d",           key: "3d" },
+  { label: "CYBERSECURITY", href: "/cybersecurity",key: "cybersecurity" },
+] as const;
+---
+
+<nav class="sticky top-0 z-50 w-full bg-[var(--gs-bg)] border-b border-[var(--gs-accent)]/15 transition-colors duration-300">
+  <div class="gs-container h-16 sm:h-[92px] flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" class="flex flex-col gap-0.5" aria-label="Geek Studio home">
+      <div class="flex items-center gap-2">
+        <span class="text-xl sm:text-2xl font-bold text-[var(--gs-accent)] tracking-tight">GEEK</span>
+        {activePage === "home" && (
+          <div class="w-7 h-6 sm:w-8 sm:h-7 bg-[var(--gs-accent)] rounded-md" />
+        )}
+        {activePage !== "home" && (
+          <span class="bg-[var(--gs-badge-bg)] text-[var(--gs-badge-text)] text-[11px] sm:text-[13px] font-bold px-2.5 sm:px-3 py-1 rounded-full tracking-wide">
+            {activePage.toUpperCase()}
+          </span>
+        )}
+      </div>
+      <span class="text-[10px] sm:text-[11px] font-bold text-[var(--gs-text-primary)] tracking-[2px]">STUDIO</span>
+    </a>
+
+    <!-- Right side: nav links + dark toggle -->
+    <div class="flex items-center gap-4 sm:gap-6 lg:gap-8">
+
+      <!-- Links desktop -->
+      <ul class="hidden sm:flex items-center gap-6 lg:gap-[38px] list-none">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={activePage === link.key ? "page" : undefined}
+              class:list={[
+                "flex flex-col items-center gap-1.5 text-[12px] lg:text-[13px] font-semibold transition-colors duration-200 hover:text-[var(--gs-accent)]",
+                activePage === link.key ? "text-[var(--gs-nav-active)]" : "text-[var(--gs-text-primary)]",
+              ]}
+            >
+              {link.label}
+              {activePage === link.key && (
+                <span class="block w-6 lg:w-7 h-0.5 bg-[var(--gs-nav-active)] rounded-full" />
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Links mobile -->
+      <ul class="flex sm:hidden items-center gap-3 list-none">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={activePage === link.key ? "page" : undefined}
+              class:list={[
+                "text-[10px] font-semibold transition-colors duration-200",
+                activePage === link.key
+                  ? "text-[var(--gs-nav-active)] underline underline-offset-4"
+                  : "text-[var(--gs-text-primary)]",
+              ]}
+            >
+              {link.label === "CYBERSECURITY" ? "CYBER" : link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Dark mode toggle button -->
+      <button
+        id="dark-toggle"
+        aria-label="Cambiar modo oscuro"
+        class="flex items-center justify-center w-9 h-9 rounded-full
+               border border-[var(--gs-accent)]/30 text-[var(--gs-text-primary)]
+               hover:bg-[var(--gs-accent)]/10 transition-all duration-200 shrink-0"
+      >
+        <!-- Moon: shown in light mode -->
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg"
+             class="w-[18px] h-[18px] sm:w-5 sm:h-5 block"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <!-- Sun: shown in dark mode, hidden initially -->
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg"
+             class="w-[18px] h-[18px] sm:w-5 sm:h-5 hidden"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1"  x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1"  y1="12" x2="3"  y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36" />
+          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<script>
+  const KEY = 'gs-dark';
+
+  function applyDark(dark) {
+    const html     = document.documentElement;
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun  = document.getElementById('icon-sun');
+
+    if (!iconMoon || !iconSun) return;
+
+    if (dark) {
+      html.setAttribute('data-dark', '');
+      iconMoon.classList.add('hidden');
+      iconSun.classList.remove('hidden');
+    } else {
+      html.removeAttribute('data-dark');
+      iconMoon.classList.remove('hidden');
+      iconSun.classList.add('hidden');
+    }
+  }
+
+  // Runs on first load and after every View Transition swap
+  function init() {
+    applyDark(localStorage.getItem(KEY) === 'true');
+
+    const btn = document.getElementById('dark-toggle');
+    if (!btn) return;
+
+    // Remove old listener before adding new one (clone trick)
+    const fresh = btn.cloneNode(true);
+    btn.parentNode.replaceChild(fresh, btn);
+
+    fresh.addEventListener('click', () => {
+      const isDark = document.documentElement.hasAttribute('data-dark');
+      applyDark(!isDark);
+      localStorage.setItem(KEY, String(!isDark));
+    });
+  }
+
+  // Initial load
+  init();
+
+  // Re-init after each View Transition (page swap)
+  document.addEventListener('astro:after-swap', init);
+</script>
