@@ -10,17 +10,17 @@
 :root,
 [data-theme="home"] {
   --gs-accent:           #090909;
-  --gs-bg:               #ffffff;
-  --gs-bg-alt:           #f2f2f2;
+  --gs-bg:               #fdfcfb;
+  --gs-bg-alt:           #f2f0ee;
   --gs-hero-visual:      #090909;
   --gs-contact-bg:       #090909;
   --gs-contact-btn:      #ffffff;
-  --gs-contact-btn-text: #090909;
+  --gs-contact-btn-text: #000000;
   --gs-card-bg:          #ffffff;
   --gs-card-border:      #090909;
   --gs-card-num:         #9e9e9e;
   --gs-card-link:        #090909;
-  --gs-text-primary:     #090909;
+  --gs-text-primary:     #000000;
   --gs-text-muted:       #9e9e9e;
   --gs-nav-active:       #090909;
   --gs-badge-bg:         #090909;
@@ -31,8 +31,8 @@
 
 [data-theme="web"] {
   --gs-accent:           #05a8e8;
-  --gs-bg:               #ffffff;
-  --gs-bg-alt:           #f0faff;
+  --gs-bg:               #fdfcfb;
+  --gs-bg-alt:           #eef8ff;
   --gs-hero-visual:      #05a8e8;
   --gs-contact-bg:       #035c8f;
   --gs-contact-btn:      #ffffff;
@@ -52,8 +52,8 @@
 
 [data-theme="3d"] {
   --gs-accent:           #7c3aed;
-  --gs-bg:               #ffffff;
-  --gs-bg-alt:           #f5f3ff;
+  --gs-bg:               #fdfcfb;
+  --gs-bg-alt:           #f3f0ff;
   --gs-hero-visual:      #7c3aed;
   --gs-contact-bg:       #4c1d95;
   --gs-contact-btn:      #ffffff;
@@ -73,23 +73,23 @@
 
 [data-theme="cybersecurity"] {
   --gs-accent:           #10b981;
-  --gs-bg:               #0a0f0d;
-  --gs-bg-alt:           #0f1a14;
+  --gs-bg:               #fdfcfb;
+  --gs-bg-alt:           #edfaf4;
   --gs-hero-visual:      #10b981;
   --gs-contact-bg:       #064e3b;
-  --gs-contact-btn:      #10b981;
-  --gs-contact-btn-text: #ffffff;
-  --gs-card-bg:          #0f1a14;
+  --gs-contact-btn:      #ffffff;
+  --gs-contact-btn-text: #064e3b;
+  --gs-card-bg:          #f0fdf8;
   --gs-card-border:      #10b981;
   --gs-card-num:         #059669;
   --gs-card-link:        #10b981;
-  --gs-text-primary:     #ecfdf5;
-  --gs-text-muted:       #6ee7b7;
+  --gs-text-primary:     #090909;
+  --gs-text-muted:       #4b7a65;
   --gs-nav-active:       #10b981;
   --gs-badge-bg:         #10b981;
-  --gs-badge-text:       #0a0f0d;
+  --gs-badge-text:       #ffffff;
   --gs-footer-text:      #10b981;
-  --gs-footer-copy:      #6ee7b7;
+  --gs-footer-copy:      #6b7280;
 }
 
 /* =============================================
@@ -171,7 +171,8 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a { text-decoration: none; color: inherit; }
+a { text-decoration: none; }
+a:not([class*="text-"]) { color: inherit; }
 
 /* =============================================
    LAYOUT HELPERS
