@@ -8,7 +8,7 @@ const navLinks = [
   { label: "HOME",          href: "/",             key: "home" },
   { label: "WEB",           href: "/web",          key: "web" },
   { label: "3D",            href: "/3d",           key: "3d" },
-  { label: "CYBERSECURITY", href: "/cybersecurity",key: "cybersecurity" },
+  /*{ label: "CYBERSECURITY", href: "/cybersecurity",key: "cybersecurity" },*/
 ] as const;
 ---
 
@@ -69,7 +69,7 @@ const navLinks = [
                   : "text-[var(--gs-text-primary)]",
               ]}
             >
-              {link.label === "CYBERSECURITY" ? "CYBER" : link.label}
+              {link.label}
             </a>
           </li>
         ))}
