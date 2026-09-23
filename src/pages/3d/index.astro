@@ -27,27 +27,75 @@ import Nav from "../../components/Nav.astro";
 
         <!-- Cube visual -->
         <div
-          class="w-full sm:max-w-[420px] sm:mx-auto lg:mx-0 lg:w-[480px] lg:min-w-[480px] aspect-[480/470] bg-[var(--gs-hero-visual)] rounded-3xl overflow-hidden flex items-center justify-center lg:my-[70px]"
-          style="perspective: 600px;"
+          class="cube-scene w-full sm:max-w-[420px] sm:mx-auto lg:mx-0 lg:w-[480px] lg:min-w-[480px] aspect-[480/470] bg-[var(--gs-hero-visual)] rounded-3xl overflow-hidden flex items-center justify-center lg:my-[70px]"
         >
-          <div class="cube relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] lg:w-[200px] lg:h-[200px]" style="transform-style: preserve-3d;">
-            {[
-              "translateZ(70px)",
-              "rotateY(180deg) translateZ(70px)",
-              "rotateY(90deg) translateZ(70px)",
-              "rotateY(-90deg) translateZ(70px)",
-              "rotateX(90deg) translateZ(70px)",
-              "rotateX(-90deg) translateZ(70px)"
-            ].map(t => (
-              <div
-                class="absolute inset-0 border border-white/40 rounded-lg bg-white/5"
-                style={`transform: ${t};`}
-              />
-            ))}
+          <div class="cube-wrapper">
+            <div class="cube-box">
+              <div class="cube-face cube-front"></div>
+              <div class="cube-face cube-back"></div>
+              <div class="cube-face cube-right"></div>
+              <div class="cube-face cube-left"></div>
+              <div class="cube-face cube-top"></div>
+              <div class="cube-face cube-bottom"></div>
+            </div>
           </div>
           <span class="absolute bottom-6 left-6 sm:bottom-10 sm:left-8 text-[clamp(2.5rem,10vw,5rem)] font-bold text-white/15 tracking-[-3px] pointer-events-none select-none">3D</span>
           <span class="absolute bottom-8 right-6 sm:bottom-12 sm:right-8 text-sm sm:text-xl font-bold text-white/25 tracking-[3px] pointer-events-none select-none">STUDIO</span>
         </div>
+
+        <style>
+          /* Tamaño del cubo por breakpoint — translateZ = lado / 2 */
+          :root {
+            --cube-size: 140px;
+            --cube-half: 70px;
+          }
+          @media (min-width: 640px) {
+            :root {
+              --cube-size: 180px;
+              --cube-half: 90px;
+            }
+          }
+          @media (min-width: 1024px) {
+            :root {
+              --cube-size: 200px;
+              --cube-half: 100px;
+            }
+          }
+
+          .cube-scene {
+            position: relative;
+            perspective: 600px;
+          }
+
+          .cube-wrapper {
+            width: var(--cube-size);
+            height: var(--cube-size);
+          }
+
+          .cube-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 12s infinite linear;
+          }
+
+          .cube-face {
+            position: absolute;
+            width: var(--cube-size);
+            height: var(--cube-size);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+          }
+
+          .cube-front  { transform: translateZ(var(--cube-half)); }
+          .cube-back   { transform: rotateY(180deg) translateZ(var(--cube-half)); }
+          .cube-right  { transform: rotateY(90deg)  translateZ(var(--cube-half)); }
+          .cube-left   { transform: rotateY(-90deg) translateZ(var(--cube-half)); }
+          .cube-top    { transform: rotateX(90deg)  translateZ(var(--cube-half)); }
+          .cube-bottom { transform: rotateX(-90deg) translateZ(var(--cube-half)); }
+        </style>
 
       </div>
     </div>
@@ -66,23 +114,23 @@ import Nav from "../../components/Nav.astro";
           <span class="text-[13px] font-bold text-[var(--gs-card-num)]">01</span>
           <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">MODELADO 3D</span>
           <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
-            Modelos tridimensionales precisos para productos, arquitectura y experiencias digitales.
+            Creamos modelos 3D de alta precisión optimizados para impresión 3D y game assets, listos para producción o integración en motores como Unity y Unreal.
           </p>
           <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
         </div>
         <div class="gs-card">
           <span class="text-[13px] font-bold text-[var(--gs-card-num)]">02</span>
-          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">VISUALIZACIÓN</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">RENDERS FOTORREALISTAS</span>
           <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
-            Renders fotorrealistas y animaciones que dan vida a tus ideas antes de producirlas.
+            Visualizaciones de alta fidelidad para proyectos arquitectónicos y presentación de productos, con iluminación y materiales que replican la realidad con precisión.
           </p>
           <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
         </div>
         <div class="gs-card sm:col-span-2 lg:col-span-1">
           <span class="text-[13px] font-bold text-[var(--gs-card-num)]">03</span>
-          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">WEB 3D / AR</span>
+          <span class="text-xl sm:text-2xl xl:text-[25px] font-bold text-[var(--gs-text-primary)] mt-1">REALIDAD AUMENTADA</span>
           <p class="text-sm sm:text-[15px] xl:text-[16px] text-[var(--gs-text-muted)] leading-relaxed flex-1">
-            Experiencias interactivas en el navegador con Three.js y realidad aumentada.
+            Desarrollamos apps AR con modelos 3D creados a medida para tu negocio. Ideal para retail, gastronomía y cualquier rubro que quiera llevar su producto al espacio del cliente.
           </p>
           <span class="text-[12px] font-bold text-[var(--gs-card-link)] mt-2">VER SERVICIO →</span>
         </div>
@@ -104,15 +152,15 @@ import Nav from "../../components/Nav.astro";
           <p class="text-base sm:text-lg text-white/60 leading-relaxed mb-8 sm:mb-10 lg:mb-12 max-w-[580px]">
             Cuéntanos tu idea y creamos la experiencia visual que imaginas.
           </p>
-          <a href="mailto:hola@geekstudio.cl" class="gs-btn bg-[var(--gs-contact-btn)] text-[var(--gs-contact-btn-text)]">
+          <a href="mailto:jberriosgallo@gmail.com" class="gs-btn bg-[var(--gs-contact-btn)] text-[var(--gs-contact-btn-text)]">
             HABLEMOS
           </a>
         </div>
         <div class="flex flex-row flex-wrap lg:flex-col gap-8 lg:gap-7 lg:pt-14 lg:min-w-[200px]">
           <div class="flex flex-col gap-1.5">
             <span class="text-[11px] font-bold tracking-[1.5px] text-white/40">EMAIL</span>
-            <a href="mailto:hola@geekstudio.cl" class="text-base sm:text-xl font-medium text-white hover:opacity-75 transition-opacity">
-              hola@geekstudio.cl
+            <a href="mailto:jberriosgallo@gmail.com" class="text-base sm:text-xl font-medium text-white hover:opacity-75 transition-opacity">
+              jberriosgallo@gmail.com
             </a>
           </div>
           <div class="flex flex-col gap-1.5">
